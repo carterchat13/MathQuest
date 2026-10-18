@@ -13,14 +13,10 @@ namespace MathQuest
             Console.WriteLine($"Hello, {userName}!");
 
             Random rnd = new Random();
-            Console.WriteLine("\n20 random integers from -100 to 100:");
+            Console.WriteLine("\n20 random numbers from 0 to 100:");
             for (int ctr = 1; ctr <= 20; ctr++)
             {
-                Console.Write("{0,6}", rnd.Next(-100, 101));
-                if (ctr % 5 == 0) 
-                {
-                    Console.WriteLine();
-                }
+                Console.WriteLine( rnd.Next(0, 100));
             }
         }
     }
