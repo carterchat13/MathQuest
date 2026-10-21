@@ -13,11 +13,17 @@ namespace MathQuest
             Console.WriteLine($"Hello, {userName}!");
 
             Random rnd = new Random();
-            Console.WriteLine("\n20 random numbers from 0 to 100:");
-            for (int ctr = 1; ctr <= 20; ctr++)
+            Console.WriteLine("\nRandom number:");
+            for (int ctr = 1; ctr <= 1; ctr++)
             {
-                Console.WriteLine( rnd.Next(0, 100));
+                var left = rnd.Next(0, 100);
+                var right = rnd.Next(0, 100);
+                Console.WriteLine(left + " + " + right + " = ?");
             }
+
+
+     
         }
     }
+    
 }
