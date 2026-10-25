@@ -33,6 +33,14 @@ namespace MathQuest
                     unparsedAnswer = Console.ReadLine();
                     isValid = int.TryParse(unparsedAnswer, out userAnswer);
                 }
+                if(userAnswer == answer)
+                {
+                    Console.WriteLine("Correct!");
+                }
+                else
+                {
+                    Console.WriteLine("Incorrect.");
+                }
             }
 
         }
