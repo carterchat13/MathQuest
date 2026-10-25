@@ -25,20 +25,27 @@ namespace MathQuest
                 // once you have a valid int, check if it is correct and print the appropriate message
 
 
-                var unparsedAnswer = Console.ReadLine();
-                var isValid = int.TryParse(unparsedAnswer, out var userAnswer);
-                while (!isValid)
-                {
-                    Console.WriteLine("Please enter a valid integer.");
-                    unparsedAnswer = Console.ReadLine();
-                    isValid = int.TryParse(unparsedAnswer, out userAnswer);
-                }
+                var userAnswer = parseAnswer();
 
                 if (userAnswer == answer)
                     Console.WriteLine("Correct!");
                 else
                     Console.WriteLine("Incorrect.");
             }
+        }
+
+        private int parseAnswer()
+        {
+            var unparsedAnswer = Console.ReadLine();
+            var isValid = int.TryParse(unparsedAnswer, out var userAnswer);
+            while (!isValid)
+            {
+                Console.WriteLine("Please enter a valid integer.");
+                unparsedAnswer = Console.ReadLine();
+                isValid = int.TryParse(unparsedAnswer, out userAnswer);
+            }
+
+            return userAnswer;
         }
     }
 }
