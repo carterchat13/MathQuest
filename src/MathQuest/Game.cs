@@ -6,14 +6,7 @@ namespace MathQuest
     {
         public void Run()
         {
-            Console.Write("What is your name?: ");
-            // Makes a string variable that stores the next input from the user
-            var userName = Console.ReadLine();
-
-            Console.WriteLine($"Hello, {userName}!");
-
             var rnd = new Random();
-            Console.WriteLine("\nRandom number:");
             for (var ctr = 1; ctr <= 1; ctr++)
             {
                 var left = rnd.Next(0, 100);
@@ -32,6 +25,30 @@ namespace MathQuest
                 else
                     Console.WriteLine("Incorrect.");
             }
+            
+            while (true)
+{
+    Console.Write("Would you like to play again? y/n: ");
+    // Makes a variable that stores the next input from the user
+    var playTime = Console.ReadLine();
+
+    if (playTime == "y" || playTime == "Y" || playTime == "yes" || playTime == "Yes")
+    {
+        Run();
+        break; // Exits the prompt loop after running the game again
+    }
+    else if (playTime == "n" || playTime == "N" || playTime == "no" || playTime == "No")
+    {
+        Console.WriteLine("Goodbye!");
+        break; // Exits the loop and stops the program
+    }
+    else
+    {
+        // Executes if all previous conditions are false
+        Console.WriteLine("Invalid input. Please type 'y' or 'n'");
+    }
+}
+
         }
 
         private int parseAnswer()
