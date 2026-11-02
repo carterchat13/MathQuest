@@ -1,9 +1,12 @@
 using System;
+using MathQuest.io;
 
 namespace MathQuest
 {
     public class Game
     {
+        private readonly ConsoleIO _io = new();
+
         public void Run()
         {
             PlayRound();
@@ -12,7 +15,7 @@ namespace MathQuest
             while (true)
             {
                 Console.Write("Would you like to play again? y/n: ");
-                var yesNo = ParseYesNo();
+                var yesNo = _io.GetYesNo();
 
 
                 if (yesNo)
@@ -36,60 +39,12 @@ namespace MathQuest
             var right = rnd.Next(0, 100);
             Console.WriteLine("What is " + left + " + " + right + " = ?");
             var answer = left + right;
-            var userAnswer = ParseAnswer();
+            var userAnswer = _io.GetInt();
 
             if (userAnswer == answer)
                 Console.WriteLine("Correct!");
             else
                 Console.WriteLine("Incorrect.");
-        }
-
-        private bool ParseYesNo()
-        {
-            var unparsedAnswer = Console.ReadLine();
-            var isYes = IsYes(unparsedAnswer);
-            var isNo = IsNo(unparsedAnswer);
-            var isValid = isYes || isNo;
-
-
-            while (!isValid)
-            {
-                Console.WriteLine("Invalid input. Please type 'y' or 'n'");
-                unparsedAnswer = Console.ReadLine();
-                isYes = IsYes(unparsedAnswer);
-                isNo = IsNo(unparsedAnswer);
-
-                isValid = isYes || isNo;
-            }
-
-            return isYes;
-        }
-
-        private bool IsNo(string? unparsedAnswer)
-        {
-            return unparsedAnswer == "n" || unparsedAnswer == "N" || unparsedAnswer == "no" ||
-                   unparsedAnswer == "No";
-        }
-
-
-        private bool IsYes(string? unparsedAnswer)
-        {
-            return unparsedAnswer == "y" || unparsedAnswer == "Y" || unparsedAnswer == "yes" ||
-                   unparsedAnswer == "Yes";
-        }
-
-        private int ParseAnswer()
-        {
-            var unparsedAnswer = Console.ReadLine();
-            var isValid = int.TryParse(unparsedAnswer, out var userAnswer);
-            while (!isValid)
-            {
-                Console.WriteLine("Please enter a valid integer.");
-                unparsedAnswer = Console.ReadLine();
-                isValid = int.TryParse(unparsedAnswer, out userAnswer);
-            }
-
-            return userAnswer;
         }
     }
 }
