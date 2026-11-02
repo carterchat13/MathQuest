@@ -6,6 +6,30 @@ namespace MathQuest
     {
         public void Run()
         {
+            PlayRound();
+
+
+            while (true)
+            {
+                Console.Write("Would you like to play again? y/n: ");
+                var yesNo = ParseYesNo();
+
+
+                if (yesNo)
+                {
+                    PlayRound();
+                }
+                else
+                {
+                    Console.WriteLine("Goodbye!");
+                    break;
+                    // Exits the loop and stops the program
+                }
+            }
+        }
+
+        private void PlayRound()
+        {
             var rnd = new Random();
 
             var left = rnd.Next(0, 100);
@@ -18,25 +42,6 @@ namespace MathQuest
                 Console.WriteLine("Correct!");
             else
                 Console.WriteLine("Incorrect.");
-
-
-            while (true)
-            {
-                Console.Write("Would you like to play again? y/n: ");
-                var yesNo = ParseYesNo();
-
-                //Todo: Find a way to not call runMethod again
-                if (yesNo)
-                {
-                    Run();
-                }
-                else
-                {
-                    Console.WriteLine("Goodbye!");
-                    break;
-                    // Exits the loop and stops the program
-                }
-            }
         }
 
         private bool ParseYesNo()
