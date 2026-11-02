@@ -48,10 +48,8 @@ namespace MathQuest
         private bool ParseYesNo()
         {
             var unparsedAnswer = Console.ReadLine();
-            var isYes = unparsedAnswer == "y" || unparsedAnswer == "Y" || unparsedAnswer == "yes" ||
-                        unparsedAnswer == "Yes";
-            var isNo = unparsedAnswer == "n" || unparsedAnswer == "N" || unparsedAnswer == "no" ||
-                       unparsedAnswer == "No";
+            var isYes = IsYes(unparsedAnswer);
+            var isNo = IsNo(unparsedAnswer);
             var isValid = isYes || isNo;
 
 
@@ -59,16 +57,26 @@ namespace MathQuest
             {
                 Console.WriteLine("Invalid input. Please type 'y' or 'n'");
                 unparsedAnswer = Console.ReadLine();
-                isYes = unparsedAnswer == "y" || unparsedAnswer == "Y" || unparsedAnswer == "yes" ||
-                        unparsedAnswer == "Yes";
-                isNo = unparsedAnswer == "n" || unparsedAnswer == "N" || unparsedAnswer == "no" ||
-                       unparsedAnswer == "No";
-                isValid = isYes || isNo;
+                isYes = IsYes(unparsedAnswer);
+                isNo = IsNo(unparsedAnswer);
 
-                // Executes if all previous conditions are false
+                isValid = isYes || isNo;
             }
 
             return isYes;
+        }
+
+        private bool IsNo(string? unparsedAnswer)
+        {
+            return unparsedAnswer == "n" || unparsedAnswer == "N" || unparsedAnswer == "no" ||
+                   unparsedAnswer == "No";
+        }
+
+
+        private bool IsYes(string? unparsedAnswer)
+        {
+            return unparsedAnswer == "y" || unparsedAnswer == "Y" || unparsedAnswer == "yes" ||
+                   unparsedAnswer == "Yes";
         }
 
         private int ParseAnswer()
