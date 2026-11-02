@@ -1,4 +1,3 @@
-using System;
 using MathQuest.io;
 
 namespace MathQuest
@@ -33,15 +32,11 @@ namespace MathQuest
 
         private void PlayRound()
         {
-            var rnd = new Random();
-
-            var left = rnd.Next(0, 100);
-            var right = rnd.Next(0, 100);
-            _io.Print("What is " + left + " + " + right + " = ?");
-            var answer = left + right;
+            var problem = new MathProblem();
+            var message = problem.GetEquationMessage();
+            _io.Print(message);
             var userAnswer = _io.GetInt();
-
-            if (userAnswer == answer)
+            if (userAnswer == problem.GetSolution())
                 _io.Print("Correct!");
             else
                 _io.Print("Incorrect.");
