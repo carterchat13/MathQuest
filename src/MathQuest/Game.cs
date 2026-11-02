@@ -7,24 +7,18 @@ namespace MathQuest
         public void Run()
         {
             var rnd = new Random();
-            for (var ctr = 1; ctr <= 1; ctr++)
-            {
-                var left = rnd.Next(0, 100);
-                var right = rnd.Next(0, 100);
-                Console.WriteLine("What is " + left + " + " + right + " = ?");
-                var answer = left + right;
 
-                // Collect an int from the user, repeating until they give a valid int
-                // once you have a valid int, check if it is correct and print the appropriate message
+            var left = rnd.Next(0, 100);
+            var right = rnd.Next(0, 100);
+            Console.WriteLine("What is " + left + " + " + right + " = ?");
+            var answer = left + right;
+            var userAnswer = ParseAnswer();
 
+            if (userAnswer == answer)
+                Console.WriteLine("Correct!");
+            else
+                Console.WriteLine("Incorrect.");
 
-                var userAnswer = ParseAnswer();
-
-                if (userAnswer == answer)
-                    Console.WriteLine("Correct!");
-                else
-                    Console.WriteLine("Incorrect.");
-            }
 
             while (true)
             {
