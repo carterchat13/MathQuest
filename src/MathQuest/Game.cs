@@ -18,40 +18,60 @@ namespace MathQuest
                 // once you have a valid int, check if it is correct and print the appropriate message
 
 
-                var userAnswer = parseAnswer();
+                var userAnswer = ParseAnswer();
 
                 if (userAnswer == answer)
                     Console.WriteLine("Correct!");
                 else
                     Console.WriteLine("Incorrect.");
             }
-            
+
             while (true)
-{
-    Console.Write("Would you like to play again? y/n: ");
-    // Makes a variable that stores the next input from the user
-    var playTime = Console.ReadLine();
+            {
+                Console.Write("Would you like to play again? y/n: ");
+                var yesNo = ParseYesNo();
 
-    if (playTime == "y" || playTime == "Y" || playTime == "yes" || playTime == "Yes")
-    {
-        Run();
-        break; // Exits the prompt loop after running the game again
-    }
-    else if (playTime == "n" || playTime == "N" || playTime == "no" || playTime == "No")
-    {
-        Console.WriteLine("Goodbye!");
-        break; // Exits the loop and stops the program
-    }
-    else
-    {
-        // Executes if all previous conditions are false
-        Console.WriteLine("Invalid input. Please type 'y' or 'n'");
-    }
-}
-
+                //Todo: Find a way to not call runMethod again
+                if (yesNo)
+                {
+                    Run();
+                }
+                else
+                {
+                    Console.WriteLine("Goodbye!");
+                    break;
+                    // Exits the loop and stops the program
+                }
+            }
         }
 
-        private int parseAnswer()
+        private bool ParseYesNo()
+        {
+            var unparsedAnswer = Console.ReadLine();
+            var isYes = unparsedAnswer == "y" || unparsedAnswer == "Y" || unparsedAnswer == "yes" ||
+                        unparsedAnswer == "Yes";
+            var isNo = unparsedAnswer == "n" || unparsedAnswer == "N" || unparsedAnswer == "no" ||
+                       unparsedAnswer == "No";
+            var isValid = isYes || isNo;
+
+
+            while (!isValid)
+            {
+                Console.WriteLine("Invalid input. Please type 'y' or 'n'");
+                unparsedAnswer = Console.ReadLine();
+                isYes = unparsedAnswer == "y" || unparsedAnswer == "Y" || unparsedAnswer == "yes" ||
+                        unparsedAnswer == "Yes";
+                isNo = unparsedAnswer == "n" || unparsedAnswer == "N" || unparsedAnswer == "no" ||
+                       unparsedAnswer == "No";
+                isValid = isYes || isNo;
+
+                // Executes if all previous conditions are false
+            }
+
+            return isYes;
+        }
+
+        private int ParseAnswer()
         {
             var unparsedAnswer = Console.ReadLine();
             var isValid = int.TryParse(unparsedAnswer, out var userAnswer);
