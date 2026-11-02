@@ -2,12 +2,12 @@ using System;
 
 namespace MathQuest
 {
-    public class MathProblem
+    public class SubtractionProblem
     {
         private readonly int _left;
         private readonly int _right;
 
-        public MathProblem()
+        public SubtractionProblem()
         {
             var rnd = new Random();
             _left = rnd.Next(0, 100);
@@ -16,12 +16,12 @@ namespace MathQuest
 
         public string GetEquationMessage()
         {
-            return "What is " + _left + " + " + _right + " = ?";
+            return "What is " + _left + " - " + _right + " = ?";
         }
 
         public int GetSolution()
         {
-            var solution = _left + _right;
+            var solution = _left - _right;
             return solution;
         }
     }

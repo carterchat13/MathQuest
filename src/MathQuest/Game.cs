@@ -32,7 +32,7 @@ namespace MathQuest
 
         private void PlayRound()
         {
-            var problem = new MathProblem();
+            var problem = new SubtractionProblem();
             var message = problem.GetEquationMessage();
             _io.Print(message);
             var userAnswer = _io.GetInt();
