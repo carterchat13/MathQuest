@@ -1,4 +1,5 @@
 using MathQuest.io;
+using MathQuest.math;
 
 namespace MathQuest
 {
@@ -8,7 +9,7 @@ namespace MathQuest
 
         public void Run()
         {
-            PlayRound();
+            PlayRound(new AdditionProblem());
 
 
             while (true)
@@ -19,7 +20,7 @@ namespace MathQuest
 
                 if (yesNo)
                 {
-                    PlayRound();
+                    PlayRound(new SubtractionProblem());
                 }
                 else
                 {
@@ -30,9 +31,8 @@ namespace MathQuest
             }
         }
 
-        private void PlayRound()
+        private void PlayRound(IMathProblem problem)
         {
-            var problem = new SubtractionProblem();
             var message = problem.GetEquationMessage();
             _io.Print(message);
             var userAnswer = _io.GetInt();

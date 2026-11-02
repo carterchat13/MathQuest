@@ -1,8 +1,8 @@
 using System;
 
-namespace MathQuest
+namespace MathQuest.math
 {
-    public class AdditionProblem
+    public class AdditionProblem : IMathProblem
     {
         private readonly int _left;
         private readonly int _right;
