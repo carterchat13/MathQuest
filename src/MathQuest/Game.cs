@@ -14,7 +14,7 @@ namespace MathQuest
 
             while (true)
             {
-                Console.Write("Would you like to play again? y/n: ");
+                _io.Print("Would you like to play again? y/n: ");
                 var yesNo = _io.GetYesNo();
 
 
@@ -24,7 +24,7 @@ namespace MathQuest
                 }
                 else
                 {
-                    Console.WriteLine("Goodbye!");
+                    _io.Print("Goodbye!");
                     break;
                     // Exits the loop and stops the program
                 }
@@ -37,14 +37,14 @@ namespace MathQuest
 
             var left = rnd.Next(0, 100);
             var right = rnd.Next(0, 100);
-            Console.WriteLine("What is " + left + " + " + right + " = ?");
+            _io.Print("What is " + left + " + " + right + " = ?");
             var answer = left + right;
             var userAnswer = _io.GetInt();
 
             if (userAnswer == answer)
-                Console.WriteLine("Correct!");
+                _io.Print("Correct!");
             else
-                Console.WriteLine("Incorrect.");
+                _io.Print("Incorrect.");
         }
     }
 }

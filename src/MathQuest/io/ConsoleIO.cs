@@ -51,5 +51,10 @@ namespace MathQuest.io
 
             return userAnswer;
         }
+
+        public void Print(string message)
+        {
+            Console.WriteLine(message);
+        }
     }
 }
