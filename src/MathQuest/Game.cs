@@ -11,34 +11,18 @@ namespace MathQuest
 
         public void Run()
         {
-            FightEnemy();
-
-
-            while (true)
-            {
-                _io.Print("Would you like to play again? y/n: ");
-                var yesNo = _io.GetYesNo();
-
-
-                if (yesNo)
-                {
-                    FightEnemy();
-                }
-                else
-                {
-                    _io.Print("Goodbye!");
-                    break;
-                    // Exits the loop and stops the program
-                }
-            }
+            for (var i = 0; i < 4; i++) FightEnemy();
+            _io.Print("All enemies defeated!");
+            _io.Print("Goodbye.");
         }
+
 
         private void FightEnemy()
         {
-            var enemy = new Enemy("dur");
-            // print "An enemy approaches!" or something like that. Maybe put like enemy.name or enemy.taunt fileds for fon?
+            var enemy = new Enemy("Guy");
+            // print "An enemy approaches!" or something like that. Maybe put like enemy.name or enemy.taunt fields for fun?
             _io.Print(enemy.Name + " approaches!");
-
+            _io.Print("Solve equation to attack.");
             while (enemy.IsAlive())
             {
                 var problem = _problemFactory.CreateMathProblem();
@@ -48,6 +32,7 @@ namespace MathQuest
                 if (userAnswer == problem.GetSolution())
                 {
                     _io.Print("Correct!");
+                    _io.Print("1 Damage Dealt to " + enemy.Name);
                     enemy.DealDamage(1);
                 }
                 else
