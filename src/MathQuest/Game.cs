@@ -6,10 +6,11 @@ namespace MathQuest
     public class Game
     {
         private readonly ConsoleIO _io = new();
+        private readonly MathProblemFactory _problemFactory = new();
 
         public void Run()
         {
-            PlayRound(new AdditionProblem());
+            PlayRound();
 
 
             while (true)
@@ -20,7 +21,7 @@ namespace MathQuest
 
                 if (yesNo)
                 {
-                    PlayRound(new SubtractionProblem());
+                    PlayRound();
                 }
                 else
                 {
@@ -31,8 +32,9 @@ namespace MathQuest
             }
         }
 
-        private void PlayRound(IMathProblem problem)
+        private void PlayRound()
         {
+            var problem = _problemFactory.CreateMathProblem();
             var message = problem.GetEquationMessage();
             _io.Print(message);
             var userAnswer = _io.GetInt();
