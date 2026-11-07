@@ -7,11 +7,11 @@ namespace MathQuest.math
         private readonly int _left;
         private readonly int _right;
 
-        public SubtractionProblem()
+        public SubtractionProblem(int rangeLeft, int rangeRight)
         {
             var rnd = new Random();
-            _left = rnd.Next(0, 100);
-            _right = rnd.Next(0, 100);
+            _left = rnd.Next(0, rangeLeft);
+            _right = rnd.Next(0, rangeRight);
         }
 
         public string GetEquationMessage()
