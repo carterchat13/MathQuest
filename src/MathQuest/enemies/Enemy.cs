@@ -1,3 +1,5 @@
+using MathQuest.math;
+
 namespace MathQuest.enemies
 
 {
@@ -27,6 +29,11 @@ namespace MathQuest.enemies
 
 
         public string Name { get; }
+
+        public IMathProblem GenerateMathProblem()
+        {
+            return new MathProblemFactory().CreateMathProblem();
+        }
 
         public void DealDamage(int damage)
         {

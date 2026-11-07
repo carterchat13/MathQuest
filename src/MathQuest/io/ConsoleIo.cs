@@ -2,7 +2,7 @@ using System;
 
 namespace MathQuest.io
 {
-    public class ConsoleIO
+    public class ConsoleIo
     {
         public bool GetYesNo()
         {

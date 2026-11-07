@@ -1,13 +1,11 @@
 using MathQuest.enemies;
 using MathQuest.io;
-using MathQuest.math;
 
 namespace MathQuest
 {
     public class Game
     {
-        private readonly ConsoleIO _io = new();
-        private readonly MathProblemFactory _problemFactory = new();
+        private readonly ConsoleIo _io = new();
 
         public void Run()
         {
@@ -18,8 +16,6 @@ namespace MathQuest
                 new Enemy("Tie", DifficultyLevel.Medium),
                 new Enemy("Die", DifficultyLevel.Hard)
             };
-
-            // creeate array of enemies, then foreach through each of them, passing enemy in to FightEnemy(enemy);
             foreach (var enemy in enemies)
             {
                 FightEnemy(enemy);
@@ -37,7 +33,8 @@ namespace MathQuest
             _io.Print("Solve equation to attack.");
             while (enemy.IsAlive())
             {
-                var problem = _problemFactory.CreateMathProblem();
+                var problem = enemy.GenerateMathProblem();
+
                 var message = problem.GetEquationMessage();
                 _io.Print(message);
                 var userAnswer = _io.GetInt();
