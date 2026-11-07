@@ -11,15 +11,27 @@ namespace MathQuest
 
         public void Run()
         {
-            for (var i = 0; i < 4; i++) FightEnemy();
+            var enemies = new[]
+            {
+                new Enemy("Guy", DifficultyLevel.Easy),
+                new Enemy("Fly", DifficultyLevel.Medium),
+                new Enemy("Tie", DifficultyLevel.Medium),
+                new Enemy("Die", DifficultyLevel.Hard)
+            };
+
+            // creeate array of enemies, then foreach through each of them, passing enemy in to FightEnemy(enemy);
+            foreach (var enemy in enemies)
+            {
+                FightEnemy(enemy);
+            }
+
             _io.Print("All enemies defeated!");
             _io.Print("Goodbye.");
         }
 
 
-        private void FightEnemy()
+        private void FightEnemy(Enemy enemy)
         {
-            var enemy = new Enemy("Guy");
             // print "An enemy approaches!" or something like that. Maybe put like enemy.name or enemy.taunt fields for fun?
             _io.Print(enemy.Name + " approaches!");
             _io.Print("Solve equation to attack.");
