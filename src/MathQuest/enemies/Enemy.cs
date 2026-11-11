@@ -1,3 +1,4 @@
+using System;
 using MathQuest.math;
 
 namespace MathQuest.enemies
@@ -11,18 +12,13 @@ namespace MathQuest.enemies
             Name = name;
             DifficultyLevel = difficultyLevel;
 
-            if (DifficultyLevel == DifficultyLevel.Easy)
+            _hp = DifficultyLevel switch
             {
-                _hp = 5;
-            }
-            else if (DifficultyLevel == DifficultyLevel.Medium)
-            {
-                _hp = 10;
-            }
-            else if (DifficultyLevel == DifficultyLevel.Hard)
-            {
-                _hp = 15;
-            }
+                DifficultyLevel.Easy => 5,
+                DifficultyLevel.Medium => 10,
+                DifficultyLevel.Hard => 15,
+                _ => throw new ArgumentOutOfRangeException()
+            };
         }
 
         private DifficultyLevel DifficultyLevel { get; }
