@@ -22,12 +22,12 @@ namespace MathQuest.enemies
         }
 
         private DifficultyLevel DifficultyLevel { get; }
-
+        
         public string Name { get; }
 
         public IMathProblem GenerateMathProblem()
         {
-            return new MathProblemFactory().CreateMathProblem(DifficultyLevel);
+            return new AdditionProblem(DifficultyLevel);
         }
 
         public void DealDamage(int damage)
