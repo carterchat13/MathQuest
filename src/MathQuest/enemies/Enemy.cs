@@ -18,7 +18,7 @@ namespace MathQuest.enemies
                 DifficultyLevel.Easy => 5,
                 DifficultyLevel.Medium => 10,
                 DifficultyLevel.Hard => 15,
-                _ => throw new ArgumentOutOfRangeException()
+                _ => throw new Exception("No such difficulty level.")
             };
         }
 
@@ -28,12 +28,12 @@ namespace MathQuest.enemies
 
         public IMathProblem GenerateMathProblem()
         {
-            if (MathProblemType == MathProblemType.Addition)
+            return MathProblemType switch
             {
-                return new AdditionProblem(DifficultyLevel);
-            }
-
-            return new SubtractionProblem(DifficultyLevel);
+                MathProblemType.Addition => new AdditionProblem(DifficultyLevel),
+                MathProblemType.Subtraction => new SubtractionProblem(DifficultyLevel),
+                _ => throw new Exception("No such math problem type.")
+            };
         }
 
         public void DealDamage(int damage)
