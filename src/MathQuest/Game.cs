@@ -1,5 +1,6 @@
 using MathQuest.enemies;
 using MathQuest.io;
+using MathQuest.math;
 
 namespace MathQuest
 {
@@ -11,10 +12,10 @@ namespace MathQuest
         {
             var enemies = new[]
             {
-                new Enemy("Guy", DifficultyLevel.Easy),
-                new Enemy("Fly", DifficultyLevel.Medium),
-                new Enemy("Tie", DifficultyLevel.Medium),
-                new Enemy("Die", DifficultyLevel.Hard)
+                new Enemy("Guy", DifficultyLevel.Easy, MathProblemType.Addition),
+                new Enemy("Fly", DifficultyLevel.Medium, MathProblemType.Subtraction),
+                new Enemy("Tie", DifficultyLevel.Medium, MathProblemType.Addition),
+                new Enemy("Die", DifficultyLevel.Hard, MathProblemType.Subtraction)
             };
             foreach (var enemy in enemies)
             {

@@ -7,8 +7,9 @@ namespace MathQuest.enemies
     {
         private int _hp;
 
-        public Enemy(string name, DifficultyLevel difficultyLevel)
+        public Enemy(string name, DifficultyLevel difficultyLevel, MathProblemType mathProblemType)
         {
+            MathProblemType = mathProblemType;
             Name = name;
             DifficultyLevel = difficultyLevel;
 
@@ -22,12 +23,17 @@ namespace MathQuest.enemies
         }
 
         private DifficultyLevel DifficultyLevel { get; }
-        
+        private MathProblemType MathProblemType { get; }
         public string Name { get; }
 
         public IMathProblem GenerateMathProblem()
         {
-            return new AdditionProblem(DifficultyLevel);
+            if (MathProblemType == MathProblemType.Addition)
+            {
+                return new AdditionProblem(DifficultyLevel);
+            }
+
+            return new SubtractionProblem(DifficultyLevel);
         }
 
         public void DealDamage(int damage)

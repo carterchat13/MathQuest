@@ -27,15 +27,13 @@ namespace MathQuest.io
 
         private bool IsNo(string? unparsedAnswer)
         {
-            return unparsedAnswer == "n" || unparsedAnswer == "N" || unparsedAnswer == "no" ||
-                   unparsedAnswer == "No";
+            return unparsedAnswer is "n" or "N" or "no" or "No";
         }
 
 
         private bool IsYes(string? unparsedAnswer)
         {
-            return unparsedAnswer == "y" || unparsedAnswer == "Y" || unparsedAnswer == "yes" ||
-                   unparsedAnswer == "Yes";
+            return unparsedAnswer is "y" or "Y" or "yes" or "Yes";
         }
 
         public int GetInt()
