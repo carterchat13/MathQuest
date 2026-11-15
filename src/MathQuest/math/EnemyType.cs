@@ -3,6 +3,7 @@ namespace MathQuest.math
     public enum MathProblemType
     {
         Addition,
-        Subtraction
+        Subtraction,
+        Multiplication
     }
 }

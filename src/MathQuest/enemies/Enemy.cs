@@ -32,6 +32,7 @@ namespace MathQuest.enemies
             {
                 MathProblemType.Addition => new AdditionProblem(DifficultyLevel),
                 MathProblemType.Subtraction => new SubtractionProblem(DifficultyLevel),
+                MathProblemType.Multiplication => new MultiplicationProblem(DifficultyLevel),
                 _ => throw new Exception("No such math problem type.")
             };
         }

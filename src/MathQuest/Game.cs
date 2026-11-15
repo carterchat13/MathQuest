@@ -12,7 +12,7 @@ namespace MathQuest
         {
             var enemies = new[]
             {
-                new Enemy("Guy", DifficultyLevel.Easy, MathProblemType.Addition),
+                new Enemy("Guy", DifficultyLevel.Easy, MathProblemType.Multiplication),
                 new Enemy("Fly", DifficultyLevel.Medium, MathProblemType.Subtraction),
                 new Enemy("Tie", DifficultyLevel.Medium, MathProblemType.Addition),
                 new Enemy("Die", DifficultyLevel.Hard, MathProblemType.Subtraction)
