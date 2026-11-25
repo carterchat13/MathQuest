@@ -4,6 +4,7 @@ namespace MathQuest.math
     {
         Addition,
         Subtraction,
-        Multiplication
+        Multiplication,
+        Division
     }
 }

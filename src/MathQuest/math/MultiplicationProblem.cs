@@ -5,8 +5,8 @@ namespace MathQuest.math
 {
     public class MultiplicationProblem : IMathProblem
     {
+        public readonly int Right;
         private readonly int _left;
-        private readonly int _right;
 
         public MultiplicationProblem(DifficultyLevel difficultyLevel)
         {
@@ -32,17 +32,17 @@ namespace MathQuest.math
 
             var rnd = new Random();
             _left = rnd.Next(1, rangeLeft);
-            _right = rnd.Next(1, rangeRight);
+            Right = rnd.Next(1, rangeRight);
         }
 
         public string GetEquationMessage()
         {
-            return "What is " + _left + " * " + _right + " = ?";
+            return "What is " + _left + " * " + Right + " = ?";
         }
 
         public int GetSolution()
         {
-            var solution = _left * _right;
+            var solution = _left * Right;
             return solution;
         }
     }
